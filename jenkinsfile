@@ -10,7 +10,7 @@ agent any
 			steps {
 			sh 'pwd'
 			sh 'du -sh'
-			sh 'ls -lrt /home/ec2-user'
+			sh 'ls -lrt'
 				}	
 		}
 		stage ('deploy') {
