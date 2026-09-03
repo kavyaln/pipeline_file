@@ -1,0 +1,26 @@
+pipeline {
+agent any
+        stages  {
+                stage ('clone') {
+                        steps {
+			checkout scm
+                        }
+                }
+		stage ('build') {
+			steps {
+			echo "this is the build stage"
+				}	
+		}
+		stage ('deploy') {
+			steps {
+			echo "cp -r build.war /var/lib/tomcat/webapps"
+				}
+		}	
+		stage ('status'){
+			steps {
+			echo "this is status"
+				}
+		}
+}
+}
+
