@@ -10,7 +10,7 @@ agent any
 			steps {
 			sh 'pwd'
 			sh 'du -sh'
-			sh 'echo "this is my first articat" > build.txt'
+			sh 'echo "this is my first articat \n this is my second artifact" >> build.txt'
 			sh 'ls -lrt'
 			archiveArtifacts artifacts: 'build.txt'
 				}	
