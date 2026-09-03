@@ -3,7 +3,8 @@ pipeline {
 	stages {
 		stage ('Clone'){
 			steps { 
-			echo "this is the cloneing stage"}
+			echo "this is the cloning stage"
+				}
 				}
 		stage ('Build'){
 			steps {
@@ -12,8 +13,13 @@ pipeline {
 				}
 		stage ('Deploy') {
 			steps {
-			echo "this is the deploying stage
+			echo "this is the deploying stage"
 				 }
+				}
+		stage ('status') {
+			steps {
+			echo "job is finished"
+				}
 				}
 }
 }
