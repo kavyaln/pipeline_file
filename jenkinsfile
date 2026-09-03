@@ -10,7 +10,9 @@ agent any
 			steps {
 			sh 'pwd'
 			sh 'du -sh'
+			sh 'echo "this is my first articat" > build.txt'
 			sh 'ls -lrt'
+			archiveArtifacts artifacts: 'build.txt'
 				}	
 		}
 		stage ('deploy') {
