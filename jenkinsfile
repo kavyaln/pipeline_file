@@ -8,7 +8,9 @@ agent any
                 }
 		stage ('build') {
 			steps {
-			echo "this is the build stage"
+			sh 'pwd'
+			sh 'du -sh'
+			sh 'ls -lrt /home/ec2-user'
 				}	
 		}
 		stage ('deploy') {
