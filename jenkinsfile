@@ -17,9 +17,8 @@ agent any
 		}
 		stage ('test') {
 			steps {
-			sh 'ls -l'
-			sh 'echo "this is for testing" '
-				}
+			sh 'test -f build-${BUILD_NUMBER}.txt'		
+		}
 		}
 		stage ('deploy') {
 			steps {
