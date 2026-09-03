@@ -10,7 +10,7 @@ agent any
 			steps {
 			sh 'pwd'
 			sh 'du -sh'
-			sh 'echo "jenkins build number: $Build number" > build.txt
+			sh 'echo "jenkins build number: $Build_number" > build.txt
 			sh 'ls -lrt'
 			archiveArtifacts artifacts: 'build.txt'
 				}	
