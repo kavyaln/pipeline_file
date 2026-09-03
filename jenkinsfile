@@ -15,6 +15,12 @@ agent any
 			archiveArtifacts artifacts: "build-${BUILD_NUMBER}.txt"
 				}	
 		}
+		stage ('test') {
+			steps {
+			sh 'ls -l'
+			sh 'echo "this is for testing" '
+				}
+		}
 		stage ('deploy') {
 			steps {
 			echo "cp -r build.war /var/lib/tomcat/webapps"
