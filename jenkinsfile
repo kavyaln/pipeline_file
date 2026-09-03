@@ -10,9 +10,9 @@ agent any
 			steps {
 			sh 'pwd'
 			sh 'du -sh'
-			sh 'echo "jenkins build number: $BUILD_NUMBER" > build$BUILD_NUMBER.txt'
+			sh 'echo "jenkins build number: $BUILD_NUMBER" > build-$BUILD_NUMBER.txt'
 			sh 'ls -lrt'
-			archiveArtifacts artifacts: 'build$BUILD_NUMBER.txt'
+			archiveArtifacts artifacts: "build-$BUILD_NUMBER.txt"
 				}	
 		}
 		stage ('deploy') {
