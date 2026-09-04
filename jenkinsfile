@@ -18,8 +18,13 @@ agent any
 		stage ('test') {
 			steps {
 			sh 'test -f build-${BUILD_NUMBER}.txt'		
-			sh 'echo "<testsuite name=\"My Tests\" tests=\"1\" failures=\"0\"><testcase name=\"Artifact test\"/></testsuite>" > test-results.xml'
-			junit 'test-results.xml'
+			 sh '''
+			cat > test-results.xml <<EOF
+			<testsuite name="My Tests" tests="1" failures="0">
+			    <testcase name="Artifact test"/>
+			</testsuite>
+			EOF
+			'''	
 		}
 		}
 		stage ('deploy') {
