@@ -37,6 +37,14 @@ agent any
 			echo "this is status"
 				}
 		}
+		post {
+			success{
+			echo "pipeline completed successfully"
+				}
+			failure{
+			echo "pipeline failed
+				}
+			}
 }
 }
 
