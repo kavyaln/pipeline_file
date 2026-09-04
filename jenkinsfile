@@ -17,7 +17,7 @@ agent any
 		}
 		stage ('test') {
 			steps {
-			sh 'test -f build-${BUILD_NUMBER}.txt'		
+			sh 'test -f wrongfile.txt'		
 			 sh '''
 			cat > test-results.xml <<EOF
 			<testsuite name="My Tests" tests="1" failures="0">
@@ -39,4 +39,5 @@ agent any
 		}
 }
 }
+
 
