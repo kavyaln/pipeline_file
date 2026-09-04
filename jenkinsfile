@@ -18,6 +18,7 @@ agent any
 		stage ('test') {
 			steps {
 			sh 'test -f build-${BUILD_NUMBER}.txt'		
+			sh 'echo "<testsuite name=\"My Tests\" tests=\"1\" failures=\"0\"><testcase name=\"Artifact test\"/></testsuite>" > test-results.xml'
 		}
 		}
 		stage ('deploy') {
