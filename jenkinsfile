@@ -42,7 +42,7 @@ agent any
 			echo "pipeline completed successfully"
 				}
 			failure{
-			echo "pipeline failed
+			echo "pipeline failed"
 				}
 			}
 }
