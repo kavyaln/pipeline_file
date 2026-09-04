@@ -40,11 +40,37 @@ agent any
 			'''	
 		}
 		}
-		stage ('deploy') {
-			steps {
-			echo "cp -r build.war /var/lib/tomcat/webapps"
+		stage ('deploy dev') {
+			when {
+			expression {
+			     params.ENVIRONMENT == 'dev'
 				}
 		}	
+			steps {
+                        echo "Deploying to dev"
+				}
+		}		
+		 stage ('deploy test') {
+                        when {
+                        expression {
+                             params.ENVIRONMENT == 'test'
+                                }
+                }
+                        steps {
+                        echo "Deploying to test"
+                                }
+                }
+		 stage ('deploy prod') {
+                        when {
+                        expression {
+                             params.ENVIRONMENT == 'prod'
+                                }
+                }
+                        steps {
+                        echo "Deploying to prod"
+                                }
+                }
+
 		stage ('status'){
 			steps {
 			echo "this is status"
