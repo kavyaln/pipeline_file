@@ -1,5 +1,9 @@
 pipeline {
 agent any
+	environment {
+	JOB_type="PIPELINE"
+			}	
+
         stages  {
                 stage ('clone') {
                         steps {
@@ -8,6 +12,7 @@ agent any
                 }
 		stage ('build') {
 			steps {
+			sh 'echo "script: $JOB_type"'
 			sh 'pwd'
 			sh 'du -sh'
 			sh 'echo "jenkins build number: $BUILD_NUMBER" > build-$BUILD_NUMBER.txt'
