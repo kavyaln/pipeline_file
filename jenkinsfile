@@ -3,6 +3,13 @@ agent any
 	environment {
 	JOB_type="PIPELINE"
 			}	
+	parameters {
+	choice(
+	    name: 'ENVIRONMENT',
+		choices: ['dev', 'test', 'prod'],
+		description :'select environment'
+	      )
+		   }
 
         stages  {
                 stage ('clone') {
@@ -13,6 +20,7 @@ agent any
 		stage ('build') {
 			steps {
 			sh 'echo "script: $JOB_type"'
+			sh 'echo "Enivironment selected: $ENVIRONMENT"'
 			sh 'pwd'
 			sh 'du -sh'
 			sh 'echo "jenkins build number: $BUILD_NUMBER" > build-$BUILD_NUMBER.txt'
