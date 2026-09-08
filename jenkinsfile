@@ -74,8 +74,6 @@ agent any
 						}
 					}
 			}
-
-}
 		stage ('deploy dev') {
 			when {
 			expression {
