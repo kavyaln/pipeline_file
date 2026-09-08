@@ -39,14 +39,6 @@ agent any
 			}
 		}
 
-		stage ('Test Error') {
-		steps {
-		catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-            error 'Test failed'
-			}
-			}
-		}
-
 		stage ('build') {
 			steps {
 			sh 'echo "script: $JOB_type"'
