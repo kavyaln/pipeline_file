@@ -17,6 +17,15 @@ agent any
 			checkout scm
                         }
                 }
+		stage ('Main Branch Check') { 
+       		when { 
+			branch 'main'
+			}
+		steps {
+		echo "jenkins is building on the main branch" 
+			}
+		}
+
 		stage ('build') {
 			steps {
 			sh 'echo "script: $JOB_type"'
