@@ -64,13 +64,15 @@ agent any
 			'''	
 		}
 		}
-		stage ('Use Credential'){
+		stage ('Username Password Credential){
 		steps { 
 		withCredentials([
-			string(credentialsId: 'dush', variable: 'MY_SECRET')
+			usernamePassword(credentialsId: 'user-test-pass',
+					usernameVariable: 'janav',
+					passwordVariable:'jdkd123')
 		]) {
 
-                    sh 'if [ -n "$MY_SECRET" ]; then echo "Credential is available"; else echo "Credential is missing"; fi'
+                    sh 'if [ -n "$janav" ]&& [-n "$jdkd123"]; then echo "Credential is available"; else echo "Credential is missing"; exit 1 fi'
 						}
 					}
 			}
