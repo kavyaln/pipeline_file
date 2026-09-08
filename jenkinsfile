@@ -1,7 +1,7 @@
 pipeline {
 agent any
 	options {
-	         retry(2)
+	         timestamps()
 		}
 
 
@@ -39,9 +39,10 @@ agent any
 			}
 		}
 
-		stage ('Long Running Stage') {
+		stage ('Test Error') {
 		steps {
-		sh 'sleep 2'
+		sh ' echo "I am checking the pipeline"'
+		error 'pipeline failed'
 			}
 		}
 
