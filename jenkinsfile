@@ -64,18 +64,18 @@ agent any
 			'''	
 		}
 		}
-		stage ('Username Password Credential'){
+		stage ('SSH Credential'){
 		steps { 
 		withCredentials([
-			usernamePassword(
-					credentialsId: 'user-pass-test',
-					usernameVariable: 'janav',
-					passwordVariable:'PASSWORD'
+			sshUserPrivateKey(
+					credentialsId: 'ec2-ssh-key,
+					usernameVariable: 'SSH_USER',
+					keyFileVariable:'SSH_KEY'
 			)
 		]) {
 
                     sh '''
-		if [ -n "$janav" ] && [ -n "$PASSWORD" ]; 
+		if [ -f "$SSH_KEY" ] && [ -n "$SSH_USER" ]; 
 		then echo "Credential is available";
 		 else echo "Credential is missing"; exit 1 
 			fi'''
