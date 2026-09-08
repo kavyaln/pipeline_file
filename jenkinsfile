@@ -19,7 +19,7 @@ agent any
                 }
 		stage ('Main Branch Check') { 
        		when { 
-			branch 'main'
+			branch 'when'
 			}
 		steps {
 		echo "jenkins is building on the main branch" 
