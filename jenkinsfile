@@ -42,7 +42,9 @@ agent any
 		stage ('Test Error') {
 		steps {
 		sh ' echo "I am checking the pipeline"'
+		catchError {
 		error 'pipeline failed'
+			}
 			}
 		}
 
