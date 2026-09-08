@@ -75,7 +75,7 @@ agent any
 		]) {
 
                     sh '''
-		if [ -n "$janav" ] && [-n "$PASSWORD"]; 
+		if [ -n "$janav" ] && [ -n "$PASSWORD" ]; 
 		then echo "Credential is available";
 		 else echo "Credential is missing"; exit 1 
 			fi'''
