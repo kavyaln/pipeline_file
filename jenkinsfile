@@ -1,7 +1,7 @@
 pipeline {
 agent any
 	options {
-		disableConcurrentBuilds()
+	         timestamps()
 		}
 
 
@@ -41,7 +41,7 @@ agent any
 
 		stage ('Long Running Stage') {
 		steps {
-		sh 'sleep 70'
+		sh 'sleep 2'
 			}
 		}
 
