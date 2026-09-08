@@ -68,11 +68,11 @@ agent any
 		steps { 
 		withCredentials([
 			usernamePassword(credentialsId: 'user-pass-test',
-					usernameVariable: 'janav',
-					passwordVariable:'jdkd123')
+					usernameVariable: '$janav',
+					passwordVariable:'PASSWORD')
 		]) {
 
-                    sh 'if [ -n "$janav" ]&& [-n "$jdkd123"]; then echo "Credential is available"; else echo "Credential is missing"; exit 1 fi'
+                    sh 'if [ -n "$USERNAME" ]&& [-n "$PASSWORD"]; then echo "Credential is available"; else echo "Credential is missing"; exit 1 fi'
 						}
 					}
 			}
