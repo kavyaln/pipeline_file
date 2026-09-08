@@ -76,9 +76,9 @@ agent any
 
                     sh '''
 		if [ -f "$SSH_KEY" ] && [ -n "$SSH_USER" ]; 
-		then echo "Credential is available";
-		 else echo "Credential is missing"; exit 1 
-			fi'''
+		then echo "Credential is available" ;
+		 else echo "Credential is missing" ; exit 1 
+			fi '''
 						}
 					}
 			}
