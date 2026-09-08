@@ -64,6 +64,18 @@ agent any
 			'''	
 		}
 		}
+		stage ('Use Credential'){
+		steps { 
+		withCredentials([
+			string(credentialsId: 'dush', variable: 'MY_SECRET')
+		]) {
+
+                    sh 'if [ -n "$MY_SECRET" ]; then echo "Credential is available"; else echo "Credential is missing"; fi'
+						}
+					}
+			}
+
+}
 		stage ('deploy dev') {
 			when {
 			expression {
