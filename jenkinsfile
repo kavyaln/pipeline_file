@@ -19,7 +19,7 @@ agent any
                 }
 		stage ('branch check') {
                 steps { 
-		sh 'git branch -- show current'
+		sh 'git branch --show-current'
 		sh 'git status'
 			}
 		}	
