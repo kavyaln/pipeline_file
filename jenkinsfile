@@ -17,12 +17,12 @@ agent any
 			checkout scm
                         }
                 }
-		stage ('Main Branch Check') { 
+		stage ('Branch Check') { 
        		when { 
 			branch 'when'
 			}
 		steps {
-		echo "jenkins is building on the main branch" 
+		echo "jenkins is building on the when branch" 
 			}
 		}
 		stage ('build') {
