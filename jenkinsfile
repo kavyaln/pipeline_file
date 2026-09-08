@@ -1,5 +1,10 @@
 pipeline {
 agent any
+	options {
+		timeout(time: 1 unit: 'MINUTES')
+		}
+
+
 	environment {
 	JOB_type="PIPELINE"
 			}	
@@ -33,6 +38,13 @@ agent any
 		echo "jenkins is building on the when branch" 
 			}
 		}
+
+		stage ('test timeout') {
+		steps {
+		sh 'sleep 70'
+			}
+		}
+
 		stage ('build') {
 			steps {
 			sh 'echo "script: $JOB_type"'
