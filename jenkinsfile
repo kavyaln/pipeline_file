@@ -19,6 +19,7 @@ agent any
                 }
 		stage ('branch check') {
                 steps { 
+              echo "BRANCH_NAME = ${env.BRANCH_NAME}"
 		sh 'git branch --show-current'
 		sh 'git status'
 			}
