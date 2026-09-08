@@ -17,6 +17,13 @@ agent any
 			checkout scm
                         }
                 }
+		stage ('branch check') {
+                steps { 
+		sh 'git branch -- show current'
+		sh 'git status'
+			}
+		}	
+
 		stage ('when Branch Check') { 
        		when { 
 			branch 'when'
