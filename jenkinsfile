@@ -41,6 +41,8 @@ agent any
 
 		stage ('build') {
 			steps {
+			sh 'echo " hi this is my application" > build.txt'
+			stash name: 'my-build', includes: 'build.txt'
 			sh 'echo "script: $JOB_type"'
 			sh 'echo "Enivironment selected: $ENVIRONMENT"'
 			sh 'pwd'
@@ -101,7 +103,8 @@ agent any
                                 }
                 }
                         steps {
-                        echo "Deploying to prod"
+                        unstash 'my-build'
+			sh 'cat build.txt'
                                 }
                 }
 
