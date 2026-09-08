@@ -90,6 +90,18 @@ agent any
                         echo "Deploying to test"
                                 }
                 }
+		stage ('Approval') {
+		steps {
+		input message: 'Do you want to continue?'
+			}
+		}
+
+		stage ('after approval') {
+		steps {
+		sh 'echo "pipeline continue after approval"'
+			}
+		}
+
 		 stage ('deploy prod') {
                         when {
                         expression {
