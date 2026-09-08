@@ -67,7 +67,7 @@ agent any
 		stage ('Username Password Credential'){
 		steps { 
 		withCredentials([
-			usernamePassword(credentialsId: 'user-test-pass',
+			usernamePassword(credentialsId: 'user-pass-test',
 					usernameVariable: 'janav',
 					passwordVariable:'jdkd123')
 		]) {
